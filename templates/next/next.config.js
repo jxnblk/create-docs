@@ -23,7 +23,7 @@ module.exports = {
             ]
           }
         },
-        require.resolve('./mdx-fm-loader')
+        'mdx-fm-loader'
       ]
     })
 

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mdx-editable LivePreview renders 1`] = `
+<div
+  className="sc-bdVaJa zQNlg"
+>
+  <div
+    className="react-live"
+  >
+    <div
+      className="react-live-preview"
+    >
+      <h1>
+        hi
+      </h1>
+    </div>
+  </div>
+</div>
+`;
