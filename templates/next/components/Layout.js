@@ -65,17 +65,11 @@ export default class extends React.Component {
           toggleMenu={this.toggleMenu}
         />
         <Flex>
-          <Box
-            width={320}
-            flex='none'
-            bg='lightgray'
-            css={{
-              height: 'calc(100vh - 48px)',
-              overflowY: 'auto'
-            }}
-          >
-            <SideBar {...this.props} />
-          </Box>
+          <SideBar
+            {...this.props}
+            {...this.state}
+            toggleMenu={this.toggleMenu}
+          />
           <Box width={1}>
             <Container>
               {children}
