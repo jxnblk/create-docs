@@ -1,7 +1,7 @@
 
 # npm init docs
 
-Next.js-based documentation site
+Compositor x0 based documentation site
 
 ```sh
 npm init docs
