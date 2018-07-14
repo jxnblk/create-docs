@@ -24,6 +24,7 @@
     "clean-tag": "^1.0.4",
     "grid-styled": "^4.3.2",
     "prop-types": "^15.6.2",
+    "reline": "^1.0.0-beta.3",
     "styled-system": "^2.3.6"
   },
   "peerDependencies": {

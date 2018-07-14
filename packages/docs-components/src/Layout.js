@@ -48,6 +48,10 @@ export default class extends React.Component {
     this.setState(state => ({ menu: !state.menu }))
   }
 
+  closeMenu = () => {
+    this.setState(state => ({ menu: false }))
+  }
+
   render () {
     const {
       children,
@@ -70,6 +74,7 @@ export default class extends React.Component {
             {...this.props}
             {...this.state}
             toggleMenu={this.toggleMenu}
+            closeMenu={this.closeMenu}
           />
           <Box width={1}>
             <Container>

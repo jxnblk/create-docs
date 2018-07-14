@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Flex, Box } from 'grid-styled'
 import styled from 'styled-components'
 import div from 'clean-tag'
+import { Burger } from 'reline'
 
 const Root = props =>
   <Flex
@@ -19,6 +20,35 @@ const Root = props =>
     }}
   />
 
+const MobileOnly = props =>
+  <Box
+    {...props}
+    css={{
+      '@media screen and (min-width: 40em)': {
+        display: 'none'
+      }
+    }}
+  />
+
+const MenuButton = props =>
+  <MobileOnly>
+    <Box
+      {...props}
+      is='button'
+      m={0}
+      p={2}
+      css={{
+        appearance: 'none',
+        fontFamily: 'inherit',
+        fontSize: 'inherit',
+        color: 'inherit',
+        backgroundColor: 'transparent',
+        border: 'none'
+      }}>
+      <Burger />
+    </Box>
+  </MobileOnly>
+
 const NavLink = styled(div.a)`
   font-weight: bold;
   font-size: 14px;
@@ -32,7 +62,8 @@ export default class SideBar extends React.Component {
   static propTypes = {
     logo: PropTypes.func,
     title: PropTypes.string,
-    Link: PropTypes.func.isRequired
+    Link: PropTypes.func.isRequired,
+    toggleMenu: PropTypes.func.isRequired
   }
 
   static defaultProps = {
@@ -43,11 +74,17 @@ export default class SideBar extends React.Component {
       title,
       logo,
       Link,
+      toggleMenu
     } = this.props
 
     return (
       <React.Fragment>
         <Root px={2} py={1} alignItems='center'>
+          <MenuButton
+            title='Menu'
+            onClick={toggleMenu}
+            mr={3}
+          />
           {logo}
           <NavLink is={Link} href='/'>
             {title}
