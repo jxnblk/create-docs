@@ -4,8 +4,15 @@ const path = require('path')
 const meow = require('meow')
 const prompts = require('prompts/dist')
 const chalk = require('chalk')
-const ora = require('ora')
 const initit = require('initit')
+
+const logo = chalk.cyan('[docs]')
+const log = (...args) => {
+  console.log(logo, ...args)
+}
+log.error = (...args) => {
+  console.log(chalk.red('[ERROR]'), ...args)
+}
 
 const templates = [
   { name: 'Compositor x0', path: 'jxnblk/create-docs/templates/x0' },
@@ -71,23 +78,23 @@ const run = async opts => {
   const response = await prompts(form)
 
   if (!response.confirm) {
-    console.log('aborted')
+    log('aborted')
     process.exit(0)
   }
   const { name } = response
   const template = templates[response.template]
 
-  const spinner = ora('creating docs...').start()
+  log('creating docs...')
 
   if (!name) {
-    spinner.fail('name is required')
+    log.error('name is required')
     // todo: prompt again
     process.exit(1)
   }
 
   if (!template) {
     // this should never happen
-    spinner.fail('template not found')
+    log.error('template not found')
     process.exit(1)
   }
 
@@ -95,12 +102,12 @@ const run = async opts => {
 
   initit({ name, template: template.path })
     .then(res => {
-      spinner.succeed('created docs')
+      log('created docs')
       process.exit(0)
     })
     .catch(err => {
-      spinner.fail('failed to create docs')
-      console.log(chalk.red('ERR'), err)
+      log.error('failed to create docs')
+      log.error(err)
       process.exit(1)
     })
 }
