@@ -6,7 +6,7 @@ import {
   pre,
   code
 } from 'mdx-editable'
-import { ThemeProvider, Layout } from '../components'
+import { ThemeProvider, Layout } from 'docs-components'
 
 const components = {
   pre,

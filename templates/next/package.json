@@ -12,6 +12,7 @@
     "@mdx-js/tag": "^0.14.0",
     "babel-loader": "^7.1.5",
     "clean-tag": "^1.0.4",
+    "docs-components": "^1.0.0-0",
     "gray-matter": "^4.0.1",
     "grid-styled": "^4.3.2",
     "mdx-editable": "^1.0.0-0",
