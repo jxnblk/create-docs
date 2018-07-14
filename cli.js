@@ -2,16 +2,14 @@
 const fs = require('fs')
 const path = require('path')
 const meow = require('meow')
-const prompts = require('prompts')
+const prompts = require('prompts/dist')
 const chalk = require('chalk')
 const ora = require('ora')
 const initit = require('initit')
 
 const templates = [
-  {
-    name: 'Next.js',
-    path: 'jxnblk/create-docs/templates/next'
-  },
+  { name: 'Compositor x0', path: 'jxnblk/create-docs/templates/x0' },
+  { name: 'Next.js [EXPERIMENTAL]', path: 'jxnblk/create-docs/templates/next' },
 ]
 
 const cli = meow(`
@@ -28,6 +26,7 @@ const cli = meow(`
     -y      Create docs without confirmation step
 
 `, {
+  booleanDefault: undefined,
   flags: {
     help: {
       type: 'boolean',
