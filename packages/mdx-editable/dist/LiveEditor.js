@@ -72,6 +72,7 @@ var Editor = function Editor(props) {
 
 var Err = function Err(props) {
   return _react2.default.createElement(_gridStyled.Box, _extends({}, props, {
+    is: _reactLive.LiveError,
     css: {
       fontFamily: 'Menlo, monospace',
       fontSize: '13px',

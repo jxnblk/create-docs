@@ -47,6 +47,7 @@ const Editor = props =>
 const Err = props =>
   <Box
     {...props}
+    is={LiveError}
     css={{
       fontFamily: 'Menlo, monospace',
       fontSize: '13px',
