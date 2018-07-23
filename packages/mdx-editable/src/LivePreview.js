@@ -6,7 +6,6 @@ import {
   LiveError
 } from 'react-live'
 import { withMDXComponents } from '@mdx-js/tag/dist/mdx-provider'
-import { Box } from 'grid-styled'
 
 const transformCode = str => `<React.Fragment>${str}</React.Fragment>`
 
@@ -19,7 +18,6 @@ export default withMDXComponents(class extends React.Component {
     components: PropTypes.object,
     render: PropTypes.func,
     previewProps: PropTypes.object,
-    editorProps: PropTypes.object,
     errorProps: PropTypes.object,
   }
 
@@ -27,20 +25,21 @@ export default withMDXComponents(class extends React.Component {
     const {
       code,
       scope,
-      components
+      components,
+      errorProps,
+      ...props
     } = this.props
 
     return (
-      <Box my={3}>
-        <LiveProvider
-          code={code}
-          scope={{ ...components, ...scope }}
-          mountStylesheet={false}
-          transformCode={transformCode}>
-          <LivePreview />
-          <LiveError />
-        </LiveProvider>
-      </Box>
+      <LiveProvider
+        {...props}
+        code={code}
+        scope={{ ...components, ...scope }}
+        mountStylesheet={false}
+        transformCode={transformCode}>
+        <LivePreview {...previewProps} />
+        <LiveError {...errorProps} />
+      </LiveProvider>
     )
   }
 })
