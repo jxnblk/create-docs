@@ -1,8 +1,2 @@
 
-# create-docs
-
-**Beta**
-
-```sh
-npm init docs
-```
+**Deprecated** See [mdx-docs](https://github.com/jxnblk/mdx-docs)
